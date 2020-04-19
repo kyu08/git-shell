@@ -5,7 +5,7 @@ git add -p
 # echo commit message たのむ
 read -p "commit message: " commitMessage
 git commit "-m${commitMessage}"
-read "Which branch?" branchToPush
+read -p "Which branch?" branchToPush
 if [ $branchToPush = 'master' ]; then
     read -p "本当に本当に master に push してええんか？ [y/n]" answerAboutMaster
     if [ $answerAboutMaster = 'y' ]; then
