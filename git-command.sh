@@ -22,4 +22,3 @@ else
         echo "${ESC}[32mpush しなかったで〜${ESC}[m"
     fi
 fi
-echo "${ESC}[32m以上やで〜${ESC}[m"
