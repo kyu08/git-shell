@@ -1,27 +1,30 @@
 #!/bin/bash
 ESC=$(printf '\033')
-echo "${ESC}[32mRED${ESC}[m"
 
 git add -p
 # echo commit message たのむ
-read -p "${ESC}[32mcommit message: ${ESC}[m" commitMessage
+read -p "commit message: " commitMessage
 git commit '-m${commitMessage}'
-read "${ESC}[32mWhich branch?${ESC}[m" branchToPush
+read "Which branch?" branchToPush
 if [ $branchToPush = 'master' ]; then
-    read -p "${ESC}[32m本当に本当に master に push してええんか？ [y/n]${ESC}[m" answerAboutMaster
+    read -p "本当に本当に master に push してええんか？ [y/n]" answerAboutMaster
     if [ $answerAboutMaster = 'y' ]; then
-        echo "${ESC}[32mほな $branchToPush に push するで〜${ESC}[m"
+        echo "ほな $branchToPush に push するで〜"
         git push origin $branchToPush
     else
-        echo "${ESC}[32mpush しなかったで〜${ESC}[m"
+        echo "push しなかったで〜"
     fi
 else
-    read -p "${ESC}[32m${branchToPush} に push してええか？ [y/n]${ESC}[m" answerAboutPush
+    read -p "${branchToPush} に push してええか？ [y/n]" answerAboutPush
     if [ $answerAboutPush = 'y' ]; then
-        echo "${ESC}[32mほな $branchToPush に push するで〜${ESC}[m"
+        echo "ほな $branchToPush に push するで〜"
         git push origin $branchToPush
     else
-        echo "${ESC}[32mpush しなかったで〜${ESC}[m"
+        echo "push しなかったで〜"
     fi
 fi
-echo "${ESC}[32m以上やで〜${ESC}[m"
+echo "以上やで〜"
+
+# いったん色はやめる
+# ちゃんと動くようにする
+# 色つけるならread と echo分けた方がいいかも
