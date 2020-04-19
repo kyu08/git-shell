@@ -2,9 +2,9 @@
 ESC=$(printf '\033')
 
 git add -p
-read -p "${ESC}[32mcommit message: ${ESC}[m" commitMessage
+read -p "${ESC}[32mcommit message を書いて欲しいやで ${ESC}[m" commitMessage
 git commit "-m${commitMessage}"
-read -p "${ESC}[32mWhich branch? ${ESC}[m" branchToPush
+read -p "${ESC}[32mどの branch に push したいのか教えて欲しいやで ${ESC}[m" branchToPush
 if [ $branchToPush = 'master' ]; then
     read -p "${ESC}[32m本当に本当に master に push してええんか？ [y/n] ${ESC}[m" answerAboutMaster
     if [ $answerAboutMaster = 'y' ]; then
