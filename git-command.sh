@@ -1,12 +1,13 @@
 #!/bin/bash
 git add -p
 read 'Enter commit message.' commitMessage
-git commit -m$commitMessage
+git commit '-m{$commitMessage}'
 read 'Which branch?' branchToPush
 if [ $branchToPush = 'master' ]; then
-    read -p '本当に master に push してええんか？ [y/n]' answerAboutBranch
-    if [ $answerAboutBranch = 'y' ]; then
+    read -p '本当に本当に """"master"""" に push してええんか？ [y/n]' answerAboutMaster
+    if [ $answerAboutMaster = 'y' ]; then
         echo ほな $branchToPush に push するで〜
+        git push origin $branchToPush
     else
         echo push しなかったで〜
     fi
@@ -19,3 +20,4 @@ else
         echo push しなかったで〜
     fi
 fi
+echo 以上やで〜
