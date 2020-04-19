@@ -1,5 +1,6 @@
 #!/bin/bash
 git add -p
+echo commit message たのむ
 read "Enter commit message." commitMessage
 git commit '-m${commitMessage}'
 read "Which branch?" branchToPush
